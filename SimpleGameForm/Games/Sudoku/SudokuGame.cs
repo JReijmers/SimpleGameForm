@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Project001.Interfaces;
+using SimpleGameForm.Interfaces;
 
-namespace Project001.Games.Sudoku
+namespace SimpleGameForm.Games.Sudoku
 {
+    /// <summary>
+    /// Contains the board and the logic for the Sudoko Game
+    /// </summary>
     class SudokuGame : IGame
     {
         /// <summary>
@@ -33,75 +36,7 @@ namespace Project001.Games.Sudoku
             this.SudokuBoard = new SudokuBoard(boardBase);
         }
 
-        /// <summary>
-        /// Check to see if the given value would be valid for the given field as far the horizontal row (x-axis) is concerned
-        /// </summary>
-        /// <param name="field">Field to check the value for</param>
-        /// <param name="value">Value to check for</param>
-        /// <returns>True if the value would be valid on the horizontal row (x-axis). False if the value would not be valid on the horizontal row (x-axis)</returns>
-        private bool IsValidHorizontal(IField field, int? value)
-        {
-            SudokuField sudokuField = field as SudokuField;
 
-            if (sudokuField != null)
-            {
-                if (sudokuField.IsPossibleValue(value))
-                {
-                    foreach (var sudokuFieldInRow in this.SudokuBoard.RetrieveHorizontalRow(field))
-                    {
-                        //check if value has already been set in this set or if it's the only option this field has left
-                        if (sudokuFieldInRow.Value == value || (sudokuFieldInRow.IsPossibleValue(value) && sudokuFieldInRow.PossibleValues.Count == 1))
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                throw new InvalidCastException("parameter field must be the interface implementation of a SudokuField");
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// Check to see if the given value would be valid for the given field as far the horizontal row (x-axis) is concerned
-        /// </summary>
-        /// <param name="field">Field to check the value for</param>
-        /// <param name="value">Value to check for</param>
-        /// <returns>True if the value would be valid on the horizontal row (x-axis). False if the value would not be valid on the horizontal row (x-axis)</returns>
-        private bool IsValidVertical(IField field, int? value)
-        {
-            SudokuField sudokuField = field as SudokuField;
-
-            if (sudokuField != null)
-            {
-                if (sudokuField.IsPossibleValue(value))
-                {
-                    foreach (var sudokuFieldInRow in this.SudokuBoard.RetrieveHorizontalRow(field))
-                    {
-                        //check if value has already been set in this set or if it's the only option this field has left
-                        if (sudokuFieldInRow.Value == value || (sudokuFieldInRow.IsPossibleValue(value) && sudokuFieldInRow.PossibleValues.Count == 1))
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                throw new InvalidCastException("parameter field must be the interface implementation of a SudokuField");
-            }
-
-            return true;
-        }
-
-        private bool IsValidBlock(IField field)
-        {
-            //
-            return false;
-        }
 
         public bool TrySetFieldValue(IField field, int? value)
         {

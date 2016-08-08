@@ -55,9 +55,11 @@
     <Compile Include="Games\Sudoku\SudokuBoard.cs" />
     <Compile Include="Games\Sudoku\SudokuField.cs" />
     <Compile Include="Games\Sudoku\SudokuGame.cs" />
+    <Compile Include="Games\Sudoku\SudokuPiece.cs" />
     <Compile Include="Interfaces\IBoard.cs" />
     <Compile Include="Interfaces\IField.cs" />
     <Compile Include="Interfaces\IGame.cs" />
+    <Compile Include="Interfaces\IPiece.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

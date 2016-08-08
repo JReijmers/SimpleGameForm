@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project001.Interfaces
+namespace SimpleGameForm.Interfaces
 {
-    interface IBoard
+    public interface IBoard
     {
-        IField[][] Fields { get; }
+        ICollection<IField> Fields { get; }
         int HorizontalRows { get; }
         int VerticalRows { get; }
     }

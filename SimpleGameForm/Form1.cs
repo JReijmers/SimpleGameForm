@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SimpleGameForm.Games.Sudoku;
+using SimpleGameForm.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,12 @@ namespace SimpleGameForm
 {
     public partial class Form1 : Form
     {
+        public IGame Game;
+
         public Form1()
         {
             InitializeComponent();
+            this.Game = new SudokuGame();
         }
     }
 }

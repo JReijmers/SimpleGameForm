@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace SimpleGameForm.Interfaces
 {
-    public interface IField
+    public interface IPiece
     {
-        IBoard Board { get; set; }
-        IPiece Piece { get; set; }
-        int PositionX { get; }
-        int PositionY { get; }
+        IField Field { get; set; }
+        int Value { get; set; }
     }
 }

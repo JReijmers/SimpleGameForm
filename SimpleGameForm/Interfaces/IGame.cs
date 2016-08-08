@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project001.Interfaces
+namespace SimpleGameForm.Interfaces
 {
-    interface IGame
+    public interface IGame
     {
         IBoard Board { get; }
     }
